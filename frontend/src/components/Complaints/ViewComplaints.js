@@ -1,9 +1,30 @@
 
 
 import { Table } from "@nextui-org/react";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Axios from 'axios';
+
 
 function ComplaintStatus() {
+  const [Complaint,setComplaint]=useState([]);
+  useEffect(()=>{
+    (async ()=>{
+
+      Axios.get('http://localhost:5000/api/Complaint/get/abc@123g.com').then((response)=> {
+        setComplaint(response.data);
+        });
+
+    })();
+
+  },[]);
+  
+
+
   return (
+    <div>
+    {(typeof Complaint[0]==='undefined')? (<p>  Loading... </p>): (
+      <div>
     <Table
       aria-label="Example table with static content"
       css={{
@@ -19,40 +40,32 @@ function ComplaintStatus() {
       
       </Table.Header>
       <Table.Body>
-        <Table.Row key="1">
-          <Table.Cell></Table.Cell>
-          <Table.Cell></Table.Cell>
-          <Table.Cell></Table.Cell>
-          <Table.Cell>
-          </Table.Cell>
+
+      {Complaint.map((val,key)=>{
+              key=val._id
+            return (
+              <Table.Row key={val._id}>
+          <Table.Cell>{val.id}</Table.Cell>
+          <Table.Cell>{val.problem}</Table.Cell>
+          <Table.Cell>{val.status}</Table.Cell>
+          <Table.Cell>{val.comments}</Table.Cell>
 
         </Table.Row>
-        <Table.Row key="2">
-          <Table.Cell></Table.Cell>
-          <Table.Cell></Table.Cell>
-          <Table.Cell></Table.Cell>
-          <Table.Cell>
+
+            )})
+          }
+
+        
+        
             
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row key="3">
-          <Table.Cell></Table.Cell>
-          <Table.Cell></Table.Cell>
-          <Table.Cell ></Table.Cell>
-          <Table.Cell>
-           
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row key="4">
-          <Table.Cell></Table.Cell>
-          <Table.Cell></Table.Cell>
-          <Table.Cell ></Table.Cell>
-          <Table.Cell>
-            
-          </Table.Cell>
-        </Table.Row>
+         
+        
       </Table.Body>
     </Table>
+    </div>
+    )}
+
+    </div>
   );
 }
 export default ComplaintStatus

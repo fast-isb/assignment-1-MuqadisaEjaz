@@ -14,25 +14,18 @@ import router from './routes/users.js';
 // const bodyParser = require('body-parser')
 
 const app = express()
-const port = 3001
+import cors from 'cors'
+app.use(cors());
+app.use(express.static("public"));
+app.use(express.json()); //important for recieving api calls
+const port = 5000
 
-app.use(bodyParser.json())
-// Adding a Router
-app.use('/users', router);
+import AnnoucementRouter from './routes/Annoucement.js'
+app.use('/api/Annoucement',AnnoucementRouter);
+import ComplaintRouter from './routes/Complaint.js'
+app.use('/api/Complaint',ComplaintRouter);
 
-app.get('/', (req, res) => {
-    res.send('Hello Universe!')
-})
-
-app.get('/todos', (req, res) => {
-    res.send('A list of todo items will be returned')
-})
-
-app.post('/', (req, res) => {
-    console.log(req.body)
-    res.send('Posting a Request')
-})
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(` app listening on port ${port}`)
 })

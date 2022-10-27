@@ -1,7 +1,24 @@
 
 
 import { Input, Grid, Button, Textarea } from "@nextui-org/react";
+import Axios from 'axios';
+import { useState } from 'react';
+
 function CreateComplaints() {
+  const [hNo,sethno]=useState(0);
+  const [problem,setProblem]=useState(0);
+  const [desc,setDesc]=useState(0);
+
+  const addComplaint=()=>{
+    Axios.post('http://localhost:5000/api/Complaint/create/',{
+      hNo: hNo,
+      problem: problem,
+      email: "abc@123g.com",
+      desc: desc,
+    }).then(()=>{
+      console.log("Success");
+    })
+  }
     return (
 
     <Grid.Container gap={10}>
@@ -9,13 +26,20 @@ function CreateComplaints() {
         <Input 
           bordered 
           labelPlaceholder="House No" 
-          color="default" />
+          color="default" 
+          onChange={(event)=>{
+            sethno(event.target.value);
+          }}/>
+          
       </Grid>
       <Grid>
         <Input 
           bordered 
-          labelPlaceholder="Email" 
-          color="primary" />
+          labelPlaceholder="Problem" 
+          color="primary" 
+          onChange={(event)=>{
+            setProblem(event.target.value); }}
+            />
       </Grid>
       <Grid>
         <Textarea
@@ -24,11 +48,14 @@ function CreateComplaints() {
   
           color="primary" 
       
-          labelPlaceholder="Problem"
+          labelPlaceholder="Description"
+          onChange={(event)=>{
+            setDesc(event.target.value);
+          }}
         
         />
       </Grid>
-      <Grid> <Button auto color="secondary" rounded flat> Submit </Button></Grid>
+      <Grid> <Button onClick={addComplaint} auto color="secondary" rounded flat> Submit </Button></Grid>
       
     </Grid.Container>
     
