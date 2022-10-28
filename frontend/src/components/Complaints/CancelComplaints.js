@@ -1,5 +1,4 @@
 
-
 import { Table , Button} from "@nextui-org/react";
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -61,8 +60,6 @@ function CancelComplaints() {
 
             )})
           }
-
-
 
         
        

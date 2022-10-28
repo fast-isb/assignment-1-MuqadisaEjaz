@@ -1,14 +1,8 @@
-import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
-import { Layout } from "./Layout.js";
-import { AcmeLogo } from "./AcmeLogo.js";
+import { Navbar, Link, Avatar, Dropdown } from "@nextui-org/react";
 export default function  NavBar(){
   const collapseItems = [
     "Profile",
     "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
     "My Settings",
     "Team Settings",
     "Help & Feedback",
@@ -16,7 +10,6 @@ export default function  NavBar(){
   ];
 
   return (
-    <Layout>
       <Navbar isBordered variant="sticky">
         <Navbar.Toggle showIn="xs" />
         <Navbar.Brand
@@ -26,10 +19,7 @@ export default function  NavBar(){
             },
           }}
         >
-          <AcmeLogo />
-          <Text b color="inherit" hideIn="xs">
-            HSM
-          </Text>
+       
         </Navbar.Brand>
         <Navbar.Content
           enableCursorHighlight
@@ -37,22 +27,12 @@ export default function  NavBar(){
           hideIn="xs"
           variant="highlight-rounded"
         >
+          <Navbar.Link href="./HomePage">Home Page </Navbar.Link>
           <Navbar.Link href="./ManageProperty">Manage Property </Navbar.Link>
-          <Navbar.Link href="./ComplaintStatus">Complaints</Navbar.Link>
-          <Navbar.Link href="./announcements">Announcements</Navbar.Link>
-          <Navbar.Link href="./CustomerService">Customer Service</Navbar.Link>
-      <Dropdown>
-      <Dropdown.Button light>Complaints</Dropdown.Button>
+          <Navbar.Link href="./ComplaintStatus">Complaint Status </Navbar.Link>
+          <Navbar.Link href="./CreateComplaints">Add Complaint</Navbar.Link>
+          <Navbar.Link href="./CancelComplaints">Cancel Complaint</Navbar.Link>
 
-      <Dropdown.Menu aria-label="Static Actions">
-      <Dropdown.Item key="new">Create</Dropdown.Item>
-        <Dropdown.Item key="copy">View</Dropdown.Item>
-        <Dropdown.Item key="delete" withDivider color="error">
-          Cancel
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-   
         </Navbar.Content>
         <Navbar.Content
           css={{
@@ -111,6 +91,6 @@ export default function  NavBar(){
           ))}
         </Navbar.Collapse>
       </Navbar>
-    </Layout>
+  
   );
 }
