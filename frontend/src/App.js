@@ -8,12 +8,12 @@ import Profile from './components/profile';
 import CreateComplaints from './components/Complaints/CreateComplaints' 
 import CancelComplaints from './components/Complaints/CancelComplaints'
 import HomePage from './components/HomePage';
-import {  BrowserRouter, Routes, Route} from 'react-router-dom'
+import {  HashRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
   return (
     <div >
-      <BrowserRouter>
+      <>
       <NavBar/>
       <Routes>
       <Route path='/HomePage' element ={<HomePage/>} />
@@ -26,7 +26,7 @@ function App() {
         <Route path='/profile' element ={<Profile/>} />
         <Route path='*' element={<h1>Error</h1>} />
       </Routes >
-     </BrowserRouter>
+     </>
     </div>
   );
 }
