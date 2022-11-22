@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import Navbar from './navbar/Navbar'
+import Navbar from './components/NavBar'
 
 test('Task01', () => {
   render(<Navbar />);
