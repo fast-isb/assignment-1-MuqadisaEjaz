@@ -5,11 +5,6 @@
 
 //const express = require('express')
 import express from 'express'; // <-- Module Style import
-import bodyParser from 'body-parser';
-
-// Importing user route
-import router from './routes/users.js';
-// const router = require('router')
 
 // const bodyParser = require('body-parser')
 

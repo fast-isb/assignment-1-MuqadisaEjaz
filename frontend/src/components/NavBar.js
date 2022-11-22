@@ -10,7 +10,7 @@ export default function  NavBar(){
   ];
 
   return (
-      <Navbar isBordered variant="sticky">
+      <Navbar data-testid = "Header" isBordered variant="sticky">
         <Navbar.Toggle showIn="xs" />
         <Navbar.Brand
           css={{
