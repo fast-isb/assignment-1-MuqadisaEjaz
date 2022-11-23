@@ -27,7 +27,7 @@ export default function  NavBar(){
           hideIn="xs"
           variant="highlight-rounded"
         >
-          <Navbar.Link href="#/HomePage">Home Page </Navbar.Link>
+          <Navbar.Link href="#/HomePage"  role="link" >Home Page </Navbar.Link>
           <Navbar.Link href="#/ManageProperty">Manage Property </Navbar.Link>
           <Navbar.Link href="#/ComplaintStatus">Complaint Status </Navbar.Link>
           <Navbar.Link href="#/CreateComplaints">Add Complaint</Navbar.Link>

@@ -22,7 +22,7 @@ function ComplaintStatus() {
 
 
   return (
-    <div>
+    <div data-testid = "ComplaintStatus">
     {(typeof Complaint[0]==='undefined')? (<p>  Loading... </p>): (
       <div>
     <Table

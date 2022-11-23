@@ -12,7 +12,5 @@ const Annoucement = new Schema({
 });
 
 
-
-
 var ann = mongoose.model('Annoucement', Annoucement);
 export default ann;

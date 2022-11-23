@@ -27,17 +27,17 @@ function CancelComplaints() {
   return (
 
 
-    <div>
+    <div  data-testid = "cancelcomplaints"> 
     {(typeof Complaint[0]==='undefined')? (<p>  Loading... </p>): (
       <div>
     <Table
-      aria-label="Example table with static content"
+         aria-label="Example table with static content"
       css={{
         height: "auto",
         minWidth: "100%",
       }}
     >
-      <Table.Header>
+      <Table.Header> 
         <Table.Column>Complaint ID</Table.Column>
         <Table.Column>Problem</Table.Column>
         <Table.Column>Status</Table.Column>

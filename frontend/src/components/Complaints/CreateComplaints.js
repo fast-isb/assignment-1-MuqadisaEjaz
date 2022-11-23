@@ -21,7 +21,7 @@ function CreateComplaints() {
   }
     return (
 
-    <Grid.Container gap={10}>
+    <Grid.Container data-testid = "complaints" gap={10}>
       <Grid>
         <Input 
           bordered 
