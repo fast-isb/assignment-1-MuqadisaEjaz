@@ -9,11 +9,11 @@ services:
       - ./backend:/app
       - /app/node_modules
   frontend:
-    build: ./frontend
+    build: ./frontend2
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend/src:/app/src
+      - ./frontend2/src:/app/src
     stdin_open: true
     tty: true
     depends_on:
